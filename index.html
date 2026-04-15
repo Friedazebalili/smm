@@ -262,60 +262,222 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 px-4 relative">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-white mb-2">Project <span class="text-blue-400">Gallery</span></h2>
-                    <p class="text-gray-400 text-base font-extralight">Visualizing high-performance campaigns and aesthetics.</p>
-                </div>
-                <div class="flex gap-2">
-                    <button class="bg-gray-900/60 backdrop-blur-md border border-blue-500/50 shadow-[4px_4px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.05)] px-4 py-2 rounded-xl text-xs font-normal text-white">All</button>
-                    <button class="bg-gray-900/60 backdrop-blur-md border border-white/5 shadow-[4px_4px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.05)] px-4 py-2 rounded-xl text-xs font-normal text-gray-400 hover:text-white transition-colors">Reels</button>
-                    <button class="bg-gray-900/60 backdrop-blur-md border border-white/5 shadow-[4px_4px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.05)] px-4 py-2 rounded-xl text-xs font-normal text-gray-400 hover:text-white transition-colors">Campaigns</button>
-                </div>
-            </div>
+    <section id="portfolio" class="gallery-section">
+  <div class="container">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
-                
-                <div class="bg-gray-900 border border-white/5 shadow-[8px_8px_24px_rgba(0,0,0,0.4)] rounded-[2rem] md:row-span-2 group relative overflow-hidden flex flex-col justify-end min-h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" alt="Viral Reel Editing" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent"></div>
-                    <div class="relative z-10 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        <h4 class="text-lg font-medium text-white tracking-tight">Viral Reel Editing</h4>
-                        <p class="text-sm text-gray-300 font-extralight mt-1">Dynamic cuts & captions</p>
-                    </div>
-                </div>
+    <p class="label">GALLERY</p>
+    <h2>My Visual Diary</h2>
+    <p class="subtitle">See the world through my lens: adventures in photos and videos</p>
 
-                <div class="bg-gray-900 border border-white/5 shadow-[8px_8px_24px_rgba(0,0,0,0.4)] rounded-[2rem] group relative overflow-hidden flex flex-col justify-end md:col-span-2">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Growth Analytics Dashboard" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/20 to-transparent"></div>
-                    <div class="relative z-10 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        <h4 class="text-lg font-medium text-white tracking-tight">Growth Analytics Dashboard</h4>
-                        <p class="text-sm text-gray-300 font-extralight mt-1">+300% Engagement increase</p>
-                    </div>
-                </div>
+    <!-- FILTERS -->
+    <div class="filters">
+      <button class="active">Italy</button>
+      <button>Dubai</button>
+      <button>London</button>
+      <button>Berlin</button>
+      <button>Rome</button>
+      <button>Lisbon</button>
+      <button>India</button>
+      <button>China</button>
+      <button>Japan</button>
+      <button class="view-more">View More →</button>
+    </div>
 
-                <div class="bg-gray-900 border border-white/5 shadow-[8px_8px_24px_rgba(0,0,0,0.4)] rounded-[2rem] group relative overflow-hidden flex flex-col justify-end">
-                    <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=800&auto=format&fit=crop" alt="Grid Curation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent"></div>
-                    <div class="relative z-10 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        <h4 class="text-lg font-medium text-white tracking-tight">Grid Curation</h4>
-                        <p class="text-sm text-gray-300 font-extralight mt-1">Aesthetic layout planning</p>
-                    </div>
-                </div>
+    <!-- SLIDER -->
+    <div class="slider" id="slider">
+      <div class="card active">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" />
+      </div>
+    </div>
 
-                <div class="bg-gray-900 border border-white/5 shadow-[8px_8px_24px_rgba(0,0,0,0.4)] rounded-[2rem] group relative overflow-hidden flex flex-col justify-end">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="AI Copywriting" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent"></div>
-                    <div class="relative z-10 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        <h4 class="text-lg font-medium text-white tracking-tight">AI Copywriting</h4>
-                        <p class="text-sm text-gray-300 font-extralight mt-1">Automated prompt engineering</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- CONTROLS -->
+    <div class="controls">
+      <button id="prev">←</button>
+      <button id="next">→</button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.gallery-section {
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.label {
+  font-size: 12px;
+  opacity: 0.6;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+/* FILTER BUTTONS */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filters button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.filters .active {
+  background: white;
+  color: black;
+}
+
+.view-more {
+  border-style: dashed;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: absolute;
+  width: 260px;
+  height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ACTIVE + STACK EFFECT */
+.card.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 3;
+}
+
+.card.prev,
+.card.next {
+  opacity: 0.6;
+  transform: scale(0.85);
+  z-index: 2;
+}
+
+.card.prev {
+  transform: translateX(-180px) scale(0.85);
+}
+
+.card.next {
+  transform: translateX(180px) scale(0.85);
+}
+
+/* CONTROLS */
+.controls {
+  margin-top: 30px;
+}
+
+.controls button {
+  margin: 0 10px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const cards = document.querySelectorAll(".card");
+let index = 0;
+
+function updateSlider() {
+  cards.forEach((card, i) => {
+    card.classList.remove("active", "prev", "next");
+
+    if (i === index) {
+      card.classList.add("active");
+    } else if (i === index - 1 || (index === 0 && i === cards.length - 1)) {
+      card.classList.add("prev");
+    } else if (i === index + 1 || (index === cards.length - 1 && i === 0)) {
+      card.classList.add("next");
+    }
+  });
+}
+
+document.getElementById("next").onclick = () => {
+  index = (index + 1) % cards.length;
+  updateSlider();
+};
+
+document.getElementById("prev").onclick = () => {
+  index = (index - 1 + cards.length) % cards.length;
+  updateSlider();
+};
+
+/* SWIPE SUPPORT */
+let startX = 0;
+
+document.getElementById("slider").addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.getElementById("slider").addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) {
+    index = (index + 1) % cards.length;
+  } else if (endX - startX > 50) {
+    index = (index - 1 + cards.length) % cards.length;
+  }
+  updateSlider();
+});
+
+/* INIT */
+updateSlider();
+</script>
 
     <section id="pricing" class="py-24 px-4">
         <div class="max-w-6xl mx-auto">
