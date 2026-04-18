@@ -13,6 +13,7 @@
         ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 10px; }
         * { cursor: none !important; }
         
+        /* Modal Animation */
         .modal-active { display: flex !important; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -24,8 +25,8 @@
             <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="check" class="text-blue-400 w-8 h-8"></i>
             </div>
-            <h2 class="text-2xl font-medium text-white mb-2">Request Received</h2>
-            <p class="text-gray-400 font-extralight mb-8">System initialized. I will review your brand details and send the payment instructions to your inbox shortly.</p>
+            <h2 class="text-2xl font-medium text-white mb-2">Request Transmitted</h2>
+            <p class="text-gray-400 font-extralight mb-8">Your system initialization request has been received. I will review your brand details and reach out via email shortly.</p>
             <a href="index.html" class="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition-all">Return Home</a>
         </div>
     </div>
@@ -46,7 +47,7 @@
                     <span class="font-mono text-[10px] text-gray-500 tracking-widest mt-0.5">SYS.AI</span>
                 </div>
             </a>
-            <a href="index.html" class="bg-gradient-to-br from-blue-500 to-blue-700 shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_8px_16px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 transition-all rounded-full px-5 py-2 text-base font-normal text-white">
+            <a href="index.html" class="bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg hover:-translate-y-0.5 transition-all rounded-full px-5 py-2 text-base font-normal text-white">
                 Back to Home
             </a>
         </div>
@@ -57,13 +58,13 @@
             
             <div class="text-center mb-10">
                 <h1 class="text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">Initialize <span class="text-blue-400">Service</span></h1>
-                <p class="text-gray-400 font-extralight">Complete the form below to request your package. After review, I will send over the payment details for PayPal or Wise.</p>
+                <p class="text-gray-400 font-extralight">Complete the form below to request your package. I will review your brand and send over the next steps and payment details.</p>
             </div>
 
             <div class="bg-gray-950/50 p-6 md:p-8 rounded-[2rem] border border-white/5 shadow-inner">
                 <form id="order-form" action="https://formsubmit.co/ajax/friedazebaliliworks@gmail.com" method="POST" class="space-y-5">
                     
-                    <input type="hidden" name="_subject" value="NEW PACKAGE ORDER REQUEST!">
+                    <input type="hidden" name="_subject" value="New Package Order Request!">
                     <input type="hidden" name="_captcha" value="false">
 
                     <div class="grid md:grid-cols-2 gap-5">
@@ -115,6 +116,7 @@
     <script>
         lucide.createIcons();
 
+        // 1. URL Plan Selector
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const plan = urlParams.get('plan');
@@ -124,6 +126,7 @@
             if (plan === 'premium') selectBox.value = 'Premium AI Package ($1,899/mo)';
         });
 
+        // 2. Form Submission with AJAX & Modal
         const orderForm = document.getElementById('order-form');
         const submitBtn = document.getElementById('submit-btn');
         const modal = document.getElementById('success-modal');
@@ -146,10 +149,10 @@
                     modal.classList.add('modal-active');
                     orderForm.reset();
                 } else {
-                    alert("Submission failed. Please try again.");
+                    alert("Submission failed. Please check your connection.");
                 }
             })
-            .catch(error => alert("An error occurred."))
+            .catch(() => alert("An error occurred during transmission."))
             .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalContent;
@@ -157,15 +160,43 @@
             });
         });
 
+        // 3. Advanced Neon Cursor Trail Logic
         const canvas = document.getElementById('cursor-canvas');
         const ctx = canvas.getContext('2d');
         const cursor = document.getElementById('custom-cursor');
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+        let points = [];
+        const maxPoints = 20;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
         window.dispatchEvent(new Event('resize'));
+
         window.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
+            points.push({ x: e.clientX, y: e.clientY });
+            if (points.length > maxPoints) points.shift();
         });
+
+        function animateCursor() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (points.length > 1) {
+                ctx.beginPath();
+                ctx.moveTo(points[0].x, points[0].y);
+                for (let i = 1; i < points.length; i++) {
+                    ctx.lineTo(points[i].x, points[i].y);
+                }
+                ctx.strokeStyle = 'rgba(34, 211, 238, 0.3)';
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.stroke();
+            }
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
     </script>
 </body>
 </html>
