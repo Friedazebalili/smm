@@ -13,7 +13,6 @@
         ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 10px; }
         * { cursor: none !important; }
         
-        /* Modal Animation */
         .modal-active { display: flex !important; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -26,7 +25,7 @@
                 <i data-lucide="check" class="text-blue-400 w-8 h-8"></i>
             </div>
             <h2 class="text-2xl font-medium text-white mb-2">Request Received</h2>
-            <p class="text-gray-400 font-extralight mb-8">System initialized. I will review your brand details and send the payment link to your email shortly.</p>
+            <p class="text-gray-400 font-extralight mb-8">System initialized. I will review your brand details and send the payment instructions to your inbox shortly.</p>
             <a href="index.html" class="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition-all">Return Home</a>
         </div>
     </div>
@@ -58,13 +57,13 @@
             
             <div class="text-center mb-10">
                 <h1 class="text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">Initialize <span class="text-blue-400">Service</span></h1>
-                <p class="text-gray-400 font-extralight">Request your package below. After review, I will send payment instructions for PayPal or Wise to your inbox.</p>
+                <p class="text-gray-400 font-extralight">Complete the form below to request your package. After review, I will send over the payment details for PayPal or Wise.</p>
             </div>
 
             <div class="bg-gray-950/50 p-6 md:p-8 rounded-[2rem] border border-white/5 shadow-inner">
-                <form id="order-form" action="https://formsubmit.co/ajax/friedazebalili@gmail.com" method="POST" class="space-y-5">
+                <form id="order-form" action="https://formsubmit.co/ajax/friedazebaliliworks@gmail.com" method="POST" class="space-y-5">
                     
-                    <input type="hidden" name="_subject" value="NEW SYSTEM ORDER: Package Request">
+                    <input type="hidden" name="_subject" value="NEW PACKAGE ORDER REQUEST!">
                     <input type="hidden" name="_captcha" value="false">
 
                     <div class="grid md:grid-cols-2 gap-5">
@@ -76,6 +75,11 @@
                             <label class="block text-xs text-gray-400 mb-1.5 ml-1">Email Address</label>
                             <input type="email" name="email" required class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none" placeholder="john@example.com">
                         </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1.5 ml-1">Brand / Company URL (Optional)</label>
+                        <input type="text" name="brand_url" class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none" placeholder="https://instagram.com/yourbrand">
                     </div>
 
                     <div>
@@ -111,7 +115,6 @@
     <script>
         lucide.createIcons();
 
-        // 1. URL Plan Selector
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const plan = urlParams.get('plan');
@@ -121,7 +124,6 @@
             if (plan === 'premium') selectBox.value = 'Premium AI Package ($1,899/mo)';
         });
 
-        // 2. Form Submission with AJAX & Modal
         const orderForm = document.getElementById('order-form');
         const submitBtn = document.getElementById('submit-btn');
         const modal = document.getElementById('success-modal');
@@ -129,6 +131,7 @@
         orderForm.addEventListener('submit', function(e) {
             e.preventDefault();
             submitBtn.disabled = true;
+            const originalContent = submitBtn.innerHTML;
             submitBtn.innerHTML = '<span>Processing...</span>';
 
             const formData = new FormData(this);
@@ -149,12 +152,11 @@
             .catch(error => alert("An error occurred."))
             .finally(() => {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Transmit Request</span> <i data-lucide="send" class="w-5 h-5"></i>';
+                submitBtn.innerHTML = originalContent;
                 lucide.createIcons();
             });
         });
 
-        // 3. Custom Cursor
         const canvas = document.getElementById('cursor-canvas');
         const ctx = canvas.getContext('2d');
         const cursor = document.getElementById('custom-cursor');
