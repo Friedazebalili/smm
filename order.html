@@ -12,24 +12,9 @@
         ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 10px; }
         * { cursor: none !important; }
-        
-        /* Modal Animation */
-        .modal-active { display: flex !important; animation: fadeIn 0.3s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-blue-500/30">
-
-    <div id="success-modal" class="fixed inset-0 z-[100] hidden items-center justify-center px-4 bg-gray-950/90 backdrop-blur-md">
-        <div class="max-w-md w-full bg-gray-900 border border-blue-500/30 rounded-[2.5rem] p-10 text-center shadow-[0_0_50px_rgba(59,130,246,0.2)]">
-            <div class="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-blue-500/30">
-                <i data-lucide="check" class="text-blue-400 w-10 h-10"></i>
-            </div>
-            <h2 class="text-3xl font-medium text-white mb-3 tracking-tight">Transmission Complete</h2>
-            <p class="text-gray-400 font-extralight mb-8 leading-relaxed">System initialized. I have received your brand details and will send the **PayPal / Wise** payment instructions to your inbox shortly.</p>
-            <a href="index.html" class="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl transition-all font-medium">Return to Mainframe</a>
-        </div>
-    </div>
 
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
@@ -39,76 +24,102 @@
     <nav class="fixed top-0 inset-x-0 z-50 flex justify-center pt-6 px-4">
         <div class="bg-gray-900/60 backdrop-blur-md border border-white/5 shadow-[8px_8px_24px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.05)] rounded-full px-8 py-3 flex items-center justify-between w-full max-w-5xl">
             <a href="index.html" class="flex items-center gap-3 group">
-                <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gray-950 border border-blue-500/30">
-                    <i data-lucide="hexagon" stroke-width="1.5" class="w-6 h-6 text-blue-400 relative z-10"></i>
+                <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gray-950 border border-blue-500/30 shadow-[inset_0_0_12px_rgba(59,130,246,0.2)]">
+                    <div class="absolute inset-0 bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors duration-500"></div>
+                    <i data-lucide="hexagon" stroke-width="1.5" class="w-6 h-6 text-blue-400 relative z-10 group-hover:rotate-12 transition-transform duration-500"></i>
                 </div>
                 <div class="flex flex-col">
                     <span class="text-white font-normal tracking-tight text-xl leading-none">BLUE<span class="text-blue-500 animate-pulse">_</span></span>
                     <span class="font-mono text-[10px] text-gray-500 tracking-widest mt-0.5">SYS.AI</span>
                 </div>
             </a>
-            <a href="index.html" class="bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg hover:-translate-y-0.5 transition-all rounded-full px-5 py-2 text-base font-normal text-white">
+            <div class="hidden md:flex items-center gap-8 text-base font-normal text-gray-400">
+                <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+                <a href="index.html#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                <a href="index.html#pricing" class="hover:text-white transition-colors">Pricing</a>
+            </div>
+            <a href="index.html#contact" class="bg-gradient-to-br from-blue-500 to-blue-700 shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_8px_16px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 transition-all rounded-full px-5 py-2 text-base font-normal text-white hidden md:block">
                 Back to Home
             </a>
         </div>
     </nav>
 
     <section class="min-h-screen flex items-center justify-center pt-32 pb-20 px-4 relative z-10">
-        <div class="max-w-3xl w-full bg-gray-900/60 backdrop-blur-md border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl">
+        <div class="max-w-3xl w-full bg-gray-900/60 backdrop-blur-md shadow-[8px_8px_24px_rgba(0,0,0,0.4),-4px_-4px_16px_rgba(255,255,255,0.02),inset_0_1px_1px_rgba(255,255,255,0.05)] rounded-[3rem] p-8 md:p-12 border border-white/10">
             
             <div class="text-center mb-10">
                 <h1 class="text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">Initialize <span class="text-blue-400">Service</span></h1>
-                <p class="text-gray-400 font-extralight">Provide your details below. I will manually review your brand before sending the secure payment link.</p>
+                <p class="text-gray-400 font-extralight">Complete the form below to request your package. I will review your brand and send over the next steps and payment details.</p>
             </div>
 
-            <div class="bg-gray-950/50 p-6 md:p-8 rounded-[2rem] border border-white/5 shadow-inner backdrop-blur-sm">
-                <form id="order-form" action="https://formsubmit.co/ajax/friedazebaliliworks@gmail.com" method="POST" class="space-y-5">
+            <div class="bg-gray-950/50 p-6 md:p-8 rounded-[2rem] border border-white/5 shadow-inner backdrop-blur-md">
+                <form action="https://formsubmit.co/friedazebaliliworks@gmail.com" method="POST" class="space-y-5">
                     
-                    <input type="hidden" name="_subject" value="New Order: System Initialization Request">
+                    <input type="hidden" name="_subject" value="New Package Order Request!">
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html"> 
                     <input type="hidden" name="_captcha" value="false">
 
                     <div class="grid md:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-xs text-gray-400 mb-1.5 ml-1 uppercase tracking-widest font-light">Full Name</label>
-                            <input type="text" name="name" required class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-700" placeholder="John Doe">
+                            <label class="block text-xs font-normal text-gray-400 mb-1.5 ml-1">Full Name</label>
+                            <input type="text" name="name" required class="w-full bg-[#0b101e] shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-600" placeholder="John Doe">
                         </div>
                         <div>
-                            <label class="block text-xs text-gray-400 mb-1.5 ml-1 uppercase tracking-widest font-light">Email Address</label>
-                            <input type="email" name="email" required class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-700" placeholder="john@example.com">
+                            <label class="block text-xs font-normal text-gray-400 mb-1.5 ml-1">Email Address</label>
+                            <input type="email" name="email" required class="w-full bg-[#0b101e] shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-600" placeholder="john@example.com">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs text-gray-400 mb-1.5 ml-1 uppercase tracking-widest font-light">Brand / Company URL (Optional)</label>
-                        <input type="text" name="brand_url" class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-700" placeholder="https://instagram.com/yourbrand">
+                        <label class="block text-xs font-normal text-gray-400 mb-1.5 ml-1">Brand / Company URL (Optional)</label>
+                        <input type="text" name="brand_url" class="w-full bg-[#0b101e] shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-600" placeholder="https://instagram.com/yourbrand">
                     </div>
 
                     <div>
-                        <label class="block text-xs text-gray-400 mb-1.5 ml-1 uppercase tracking-widest font-light">Selected Package</label>
+                        <label class="block text-xs font-normal text-gray-400 mb-1.5 ml-1">Selected Package</label>
                         <div class="relative">
-                            <select id="package-select" name="package" required class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 appearance-none outline-none cursor-pointer">
-                                <option value="" disabled selected>Select a service package</option>
+                            <select id="package-select" name="package" required class="w-full bg-[#0b101e] shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 appearance-none cursor-pointer outline-none">
+                                <option value="" disabled selected>Select a package</option>
                                 <option value="Starter Package ($499/mo)">Starter Package ($499/mo)</option>
                                 <option value="Growth Package ($999/mo)">Growth Package ($999/mo)</option>
                                 <option value="Premium AI Package ($1,899/mo)">Premium AI Package ($1,899/mo)</option>
                             </select>
-                            <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"></i>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                                <i data-lucide="chevron-down" stroke-width="1.5" class="w-4 h-4"></i>
+                            </div>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs text-gray-400 mb-1.5 ml-1 uppercase tracking-widest font-light">Project Goals & Brief</label>
-                        <textarea name="message" required rows="4" class="w-full bg-[#0b101e] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none resize-none placeholder-gray-700" placeholder="What are we scaling today?"></textarea>
+                        <label class="block text-xs font-normal text-gray-400 mb-1.5 ml-1">Brand Goals & Notes</label>
+                        <textarea name="message" required rows="4" class="w-full bg-[#0b101e] shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)] border border-white/5 rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-blue-500/50 outline-none placeholder-gray-600 resize-none" placeholder="Tell me briefly about what you want to achieve..."></textarea>
                     </div>
 
-                    <button type="submit" id="submit-btn" class="w-full bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg hover:-translate-y-0.5 transition-all duration-300 py-4 rounded-xl text-base text-white flex items-center justify-center gap-2 font-medium">
-                        <span>Transmit Request</span>
-                        <i data-lucide="send" class="w-5 h-5"></i>
+                    <button type="submit" class="w-full bg-gradient-to-br from-blue-500 to-blue-700 shadow-[0_8px_16px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 transition-all duration-300 py-4 rounded-xl text-base font-normal text-white mt-4 flex items-center justify-center gap-2">
+                        Transmit Request
+                        <i data-lucide="send" stroke-width="1.5" class="w-5 h-5"></i>
                     </button>
                 </form>
             </div>
         </div>
     </section>
+
+    <footer class="border-t border-white/5 py-12 px-4 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gray-950 border border-blue-500/30">
+                        <i data-lucide="hexagon" stroke-width="1.5" class="w-6 h-6 text-blue-400 relative z-10"></i>
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <span class="text-white font-normal text-xl leading-none">BLUE</span>
+                        <span class="font-mono text-[10px] text-gray-500 tracking-widest mt-0.5">SYS.AI</span>
+                    </div>
+                </a>
+            </div>
+            <div class="text-xs text-gray-600 font-extralight">&copy; 2024 BLUE AI. All systems nominal.</div>
+        </div>
+    </footer>
 
     <canvas id="cursor-canvas" class="fixed inset-0 pointer-events-none z-[9998]"></canvas>
     <div id="custom-cursor" class="fixed w-4 h-4 bg-cyan-400 rounded-full pointer-events-none z-[9999] shadow-[0_0_15px_#22d3ee] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out"></div>
@@ -116,55 +127,21 @@
     <script>
         lucide.createIcons();
 
-        // 1. URL Parameter Logic
+        // 1. Auto-Select Package based on URL Parameter
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const plan = urlParams.get('plan');
             const selectBox = document.getElementById('package-select');
+
             if (plan === 'starter') selectBox.value = 'Starter Package ($499/mo)';
             if (plan === 'growth') selectBox.value = 'Growth Package ($999/mo)';
             if (plan === 'premium') selectBox.value = 'Premium AI Package ($1,899/mo)';
         });
 
-        // 2. Form Submission with AJAX & Modal
-        const orderForm = document.getElementById('order-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const modal = document.getElementById('success-modal');
-
-        orderForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            const originalContent = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span>Processing Data...</span>';
-
-            const formData = new FormData(this);
-
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    modal.classList.add('modal-active');
-                    orderForm.reset();
-                } else {
-                    alert("Submission failed. Please check your connection.");
-                }
-            })
-            .catch(() => alert("An error occurred during transmission."))
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalContent;
-                lucide.createIcons();
-            });
-        });
-
-        // 3. SNOW PARTICLE CURSOR (Matches index.html)
+        // 2. Custom Cursor Logic
         const canvas = document.getElementById('cursor-canvas');
         const ctx = canvas.getContext('2d');
         const cursor = document.getElementById('custom-cursor');
-        let particles = [];
         let mouse = { x: -100, y: -100 };
 
         window.addEventListener('resize', () => {
@@ -178,47 +155,7 @@
             mouse.y = e.clientY;
             cursor.style.left = mouse.x + 'px';
             cursor.style.top = mouse.y + 'px';
-            
-            // Add particles for snow trailing effect
-            for(let i = 0; i < 3; i++) {
-                particles.push({
-                    x: mouse.x,
-                    y: mouse.y,
-                    size: Math.random() * 2.5 + 0.5,
-                    speedX: (Math.random() - 0.5) * 1.5,
-                    speedY: (Math.random() - 0.5) * 1.5 + 0.5, // slightly falling snow trajectory
-                    life: 1
-                });
-            }
         });
-
-        // Click effect on cursor
-        window.addEventListener('mousedown', () => cursor.classList.add('scale-75'));
-        window.addEventListener('mouseup', () => cursor.classList.remove('scale-75'));
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
-                ctx.fillStyle = `rgba(34, 211, 238, ${p.life})`;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = '#22d3ee';
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-                
-                p.x += p.speedX;
-                p.y += p.speedY;
-                p.life -= 0.03;
-                
-                if (p.life <= 0) {
-                    particles.splice(i, 1);
-                    i--;
-                }
-            }
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
     </script>
 </body>
 </html>
